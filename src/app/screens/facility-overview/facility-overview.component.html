@@ -1,0 +1,99 @@
+<div fxFlex fxLayout="column" class="container ml-32">
+  <div class="my-8">
+    <button mat-icon-button (click)="scroll('start')">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-icon-button (click)="scroll('mid')">
+      <mat-icon
+        ><span class="material-icons-round">
+          calendar_view_week
+        </span></mat-icon
+      >
+    </button>
+    <button mat-icon-button (click)="scroll('end')">
+      <mat-icon>last_page</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="zoom(1)">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    <button mat-icon-button (click)="zoom(null)">
+      <mat-icon>crop_free</mat-icon>
+    </button>
+    <button mat-icon-button (click)="zoom(0)">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+  </div>
+  <div fxFlex fxLayout="column">
+    <div fxLayout="row" class="header-row" class="zoomable">
+      <cdk-virtual-scroll-viewport
+        itemSize="256"
+        minBufferPx="256"
+        maxBufferPx="256"
+        orientation="horizontal"
+        class="header-viewport"
+      >
+        <div
+          *cdkVirtualFor="
+            let tier of tiers;
+            let i = index;
+            templateCacheSize: 0
+          "
+        >
+          <div class="tier-header">
+            <div class="mat-caption">
+              {{
+                tier.tierType === "facility" || tier.tierType === "partners"
+                  ? tier.tierType
+                  : "Tier " + (i - 1)
+              }}
+            </div>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <div fxFlex fxLayout="row" class="zoomable">
+      <cdk-virtual-scroll-viewport
+        itemSize="256"
+        minBufferPx="256"
+        maxBufferPx="400"
+        class="viewport"
+        orientation="horizontal"
+      >
+        <div
+          *cdkVirtualFor="
+            let tier of tiers;
+            let i = index;
+            templateCacheSize: 0
+          "
+        >
+          <div
+            cdkDropList
+            #step="cdkDropList"
+            [cdkDropListData]="tier.suppliers"
+            (cdkDropListDropped)="dropped($event)"
+            class="list"
+            fxFlex
+            fxLayout="column"
+            fxLayoutGap="24px"
+            [id]="
+              tier.tierType
+                ? 'cdk-drop-list-' + tier.tierType
+                : 'cdk-drop-list-' + (i - 1)
+            "
+          >
+            <mat-card *ngFor="let supplier of tier.suppliers" cdkDrag>
+              <mat-card-title
+                >{{ supplier.name }}
+                <button mat-icon-button (click)="openDetails(i)">
+                  <mat-icon>more_vert</mat-icon>
+                </button></mat-card-title
+              >
+              <mat-card-subtitle>{{ supplier.id }}</mat-card-subtitle>
+            </mat-card>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

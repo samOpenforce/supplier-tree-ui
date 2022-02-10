@@ -1,0 +1,41 @@
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drop-list-dragging > .cdk-drag-placeholder {
+  opacity: 0.66;
+}
+
+.swimlane {
+  width: 256px;
+  display: flex;
+}
+
+.list {
+  padding: 24px 16px;
+  border-left: 2px solid orange;
+  width: 256px;
+}
+.container {
+  overflow: hidden;
+}
+.tier-header {
+  display: flex;
+  max-height: 32px;
+  min-width: 256px;
+  max-width: 256px;
+  border-left: 2px solid orange;
+  box-sizing: border-box;
+  padding: 16px;
+  border-bottom: 8px solid red;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-row {
+  display: flex;
+  height: 32px;
+}

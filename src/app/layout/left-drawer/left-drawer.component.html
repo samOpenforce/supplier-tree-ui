@@ -1,0 +1,30 @@
+<div fxFlex fxLayout="column" class="left-drawer-container">
+  <div class="left-drawer-header"></div>
+  <div class="left-drawer-content">
+    <div
+      #productDropList="cdkDropList"
+      cdkDropList
+      [cdkDropListData]="products"
+      (cdkDropListDropped)="dropped($event)"
+      class="list"
+      fxFlexFill
+      fxLayout="column"
+      fxLayoutGap="24px"
+      id="cdk-drop-list-products"
+    >
+      <mat-card *ngFor="let product of products" cdkDrag class="product">
+        <span class="mat-caption">{{ product.name }}</span>
+      </mat-card>
+    </div>
+  </div>
+  <div
+    fxFlexOffset="auto"
+    fxFlexLayout="row"
+    fxLayoutAlign="flex-end center"
+    class="left-drawer-action-row px-40"
+  >
+    <button mat-icon-button (click)="toggleLeftDrawer()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  </div>
+</div>

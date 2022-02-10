@@ -1,0 +1,14 @@
+<div
+  fxFlex
+  fxLayout="row"
+  fxLayoutAlign="flex-start center"
+  class="drag-bar-container"
+  (panstart)="onPanStart($event)"
+  (panend)="onPanEnd($event)"
+>
+  <div class="ml-40"><mat-icon *ngIf="spaceEngaged">keyboard</mat-icon></div>
+  <div class="ml-40">
+    Drag start {{ dragStart ? (dragStart | json) : "--:--" }} <br />Drag end
+    {{ dragEnd ? (dragEnd | json) : "--:--" }}
+  </div>
+</div>

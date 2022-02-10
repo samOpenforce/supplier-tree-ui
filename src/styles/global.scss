@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "spacing";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.drawer-container {
+  min-width: 256px;
+  min-height: 100%;
+}
+
+cdk-virtual-scroll-viewport.viewport {
+  height: 100%;
+  min-width: 100%;
+
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+}
+
+cdk-virtual-scroll-viewport.header-viewport {
+  height: 32px;
+  max-height: 32px;
+  min-width: 100%;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+}
+
+.cdk-virtual-scroll-content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.full-width {
+  width: 100%;
+}

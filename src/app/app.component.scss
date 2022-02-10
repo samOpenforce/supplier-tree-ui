@@ -1,0 +1,21 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+// header, main content, footer
+.all-layout-content {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  //margin: 0px auto;
+  width: 100%;
+  //max-width: 1440px;
+  overflow: hidden;
+}

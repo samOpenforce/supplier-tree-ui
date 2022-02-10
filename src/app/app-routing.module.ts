@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FacilityOverviewComponent } from './screens/facility-overview/facility-overview.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: FacilityOverviewComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
